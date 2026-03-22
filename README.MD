@@ -49,13 +49,14 @@ python src/train.py
 
 -   Model checkpoints will be saved in:
 
-    ./model/
+    `./model/`
 
 ------------------------------------------------------------------------
 
 ## Inference (Speech-to-Text)
 
 1.  Place your audio file in the `data/` folder\
+
     *(e.g., `test.mp3`)*
 
 2.  Run:
@@ -79,10 +80,10 @@ python src/inference.py
 
 ## Model
 
--   Base model: `openai/whisper-tiny`\
+-   Base model: `openai/whisper-tiny`
 -   Fine-tuned checkpoints:
 
-    ./model/checkpoint-xxx
+    `./model/checkpoint-xxx`
 
 ------------------------------------------------------------------------
 
