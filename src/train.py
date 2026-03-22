@@ -15,6 +15,10 @@ from metrics import compute_metrics
 
 
 def main():
+    import torch
+    print("GPU available:", torch.cuda.is_available())
+    print("Device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "CPU")
+
     model_id = "openai/whisper-tiny"
 
     dataset = load_dataset("doof-ferb/infore1_25hours", split="train")
