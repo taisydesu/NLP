@@ -1,53 +1,112 @@
-Fine-Tuning Whisper-Tiny for Vietnamese Speech Recognition
+# Vietnamese Speech Recognition with Whisper-Tiny
 
-This project builds a Vietnamese Automatic Speech Recognition (ASR) system using the Whisper model (openai/whisper-tiny) from Hugging Face Transformers.
+Fine-tuning Whisper (openai/whisper-tiny) for **Vietnamese Automatic
+Speech Recognition (ASR)** using Hugging Face Transformers.
 
-The model is fine-tuned on a Vietnamese speech dataset to improve transcription accuracy.
+This project improves transcription accuracy by training on a Vietnamese
+speech dataset.
+
+------------------------------------------------------------------------
 
 ## Features
-Fine-tune Whisper for Vietnamese speech recognition
-Evaluate model using Word Error Rate (WER)
-Perform inference on custom audio files
-Supports GPU acceleration (CUDA)
+
+-   Fine-tune Whisper for Vietnamese ASR\
+-   Evaluate performance using **Word Error Rate (WER)**\
+-   Run inference on custom audio files\
+-   GPU acceleration support (CUDA)
+
+------------------------------------------------------------------------
 
 ## Dataset
-# Dataset used:
-doof-ferb/infore1_25hours
 
-# Download is handled automatically using Hugging Face:
+-   Dataset: `doof-ferb/infore1_25hours`
+
+-   Automatically downloaded via Hugging Face:
+
+``` python
 from datasets import load_dataset
+
 dataset = load_dataset("doof-ferb/infore1_25hours")
+```
+
+------------------------------------------------------------------------
 
 ## Installation
+
+``` bash
 pip install -r requirements.txt
+```
+
+------------------------------------------------------------------------
 
 ## Training
-# Run:
-python src/train.py
 
-# Model checkpoints will be saved in:
-./model/
+Run the training script:
+
+``` bash
+python src/train.py
+```
+
+-   Model checkpoints will be saved in:
+
+```{=html}
+<!-- -->
+```
+    ./model/
+
+------------------------------------------------------------------------
 
 ## Inference (Speech-to-Text)
-# Place your audio file in data/ folder (e.g., test.mp3)
-Run:
+
+1.  Place your audio file in the `data/` folder\
+    *(e.g., `test.mp3`)*
+
+2.  Run:
+
+``` bash
 python src/inference.py
+```
 
-# Example Output
-Input: test.mp3
-Output: Trời hôm nay thật đẹp.
+### Example
 
-## Evaluation Metric
-Word Error Rate (WER)
+    Input: test.mp3  
+    Output: Trời hôm nay thật đẹp.
 
-## Notes
-Audio is resampled to 16kHz for Whisper compatibility
-Training uses mixed precision (fp16)
-GPU recommended for faster training
+------------------------------------------------------------------------
+
+## Evaluation
+
+-   Metric: **Word Error Rate (WER)**
+
+------------------------------------------------------------------------
 
 ## Model
-# Base model:
-openai/whisper-tiny
 
-# Fine-tuned checkpoints:
-./model/checkpoint-xxx
+-   Base model: `openai/whisper-tiny`\
+-   Fine-tuned checkpoints:
+
+```{=html}
+<!-- -->
+```
+    ./model/checkpoint-xxx
+
+------------------------------------------------------------------------
+
+## Notes
+
+-   Audio is resampled to **16kHz** for Whisper compatibility\
+-   Training uses **mixed precision (fp16)**\
+-   GPU is recommended for faster training
+
+------------------------------------------------------------------------
+
+## Project Structure
+
+    ├── data/               # Input audio files
+    ├── model/              # Trained checkpoints
+    ├── src/
+    │   ├── train.py        # Training script
+    │   └── inference.py    # Inference script
+    ├── requirements.txt
+    └── README.md
+
