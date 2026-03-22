@@ -1,0 +1,8 @@
+datasets
+transformers[torch]
+librosa
+evaluate
+jiwer
+accelerate
+rapidfuzz
+soundfile
