@@ -49,9 +49,6 @@ python src/train.py
 
 -   Model checkpoints will be saved in:
 
-```{=html}
-<!-- -->
-```
     ./model/
 
 ------------------------------------------------------------------------
@@ -85,17 +82,14 @@ python src/inference.py
 -   Base model: `openai/whisper-tiny`\
 -   Fine-tuned checkpoints:
 
-```{=html}
-<!-- -->
-```
     ./model/checkpoint-xxx
 
 ------------------------------------------------------------------------
 
 ## Notes
 
--   Audio is resampled to **16kHz** for Whisper compatibility\
--   Training uses **mixed precision (fp16)**\
+-   Audio is resampled to **16kHz** for Whisper compatibility
+-   Training uses **mixed precision (fp16)**
 -   GPU is recommended for faster training
 
 ------------------------------------------------------------------------
@@ -105,8 +99,11 @@ python src/inference.py
     ├── data/               # Input audio files
     ├── model/              # Trained checkpoints
     ├── src/
-    │   ├── train.py        # Training script
-    │   └── inference.py    # Inference script
+    │   ├── train.py        # Training pipeline
+    │   ├── inference.py    # Speech-to-text inference
+    │   ├── preprocess.py   # Audio preprocessing
+    │   ├── metrics.py      # WER calculation
+    │   └── collator.py     # Data collator for training
     ├── requirements.txt
     └── README.md
 
